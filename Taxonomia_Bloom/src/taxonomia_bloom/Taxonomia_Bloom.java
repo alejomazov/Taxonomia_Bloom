@@ -3,18 +3,32 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
 package taxonomia_bloom;
+import Vista.Evaluacion;
+import Controlador.Control;
 
-/**
- *
- * @author alejo
- */
+
+
 public class Taxonomia_Bloom {
 
-    /**
-     * @param args the command line arguments
-     */
+    public static Vista.Evaluacion vista;
+  
+    
     public static void main(String[] args) {
-        // TODO code application logic here
+
+        vista = new Evaluacion();
+        vista.setVisible(true);
+        Control control = new Control(vista);
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     }
     
 }

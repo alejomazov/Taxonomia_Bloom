@@ -6,6 +6,7 @@ package Controlador;
 
 import Vista.Evaluacion;
 import Vista.Resultado;
+import Vista.InicioExamen;
 import Modelo.Pregunta;
 import Modelo.Listar;
 import java.awt.event.ActionEvent;
@@ -26,10 +27,11 @@ public class Control {
         
     
     
-    public Control(Evaluacion vista) {
+    public Control(Evaluacion vista,List<Pregunta> preguntas) {
         this.vista = vista;
+        this.preguntas = preguntas;
         Listar listar = new Listar();
-        preguntas = listar.preguntaBD(); 
+         
         indiceActual = 0;
         
         for(int i=0; i<preguntas.size();i++){

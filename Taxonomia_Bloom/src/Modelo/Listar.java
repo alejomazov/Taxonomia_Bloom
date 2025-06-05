@@ -8,6 +8,7 @@ import Controlador.Conexion;
 import java.sql.Connection;
 import java.util.List;
 import java.util.ArrayList;
+import java.sql.PreparedStatement;
 import java.sql.Statement;
 import java.sql.ResultSet;
 
@@ -19,16 +20,21 @@ public class Listar {
     Conexion con = new Conexion();
     Connection cn = con.Conex();
     
-    public List<Pregunta> preguntaBD(){
+    public List<Pregunta> preguntaBD(int examen){
         List<Pregunta> preguntas = new ArrayList<>();
         
-        String consultasql ="SELECT * FROM preguntas";
+        String consultasql ="SELECT id_pregunta, enunciado,respuesta_1,respuesta_2,respuesta_3,respuesta_4,"
+                + "respuestaCorrecta, tiempo, tipo, nivel "
+                + "FROM preguntas "
+                + "WHERE id_examen = ?";
+        System.out.println(examen);
         
         
         try {
             
-            Statement st = cn.createStatement();
-            ResultSet rs = st.executeQuery(consultasql);
+            PreparedStatement st = cn.prepareStatement(consultasql);
+            st.setInt(1, examen);
+            ResultSet rs = st.executeQuery();
            
             while (rs.next()){
                 p = new Pregunta(

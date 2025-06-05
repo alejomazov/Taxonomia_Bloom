@@ -29,6 +29,7 @@ public class InicioExamen extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         CBexamenes = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
+        btnInicioExa = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -41,6 +42,13 @@ public class InicioExamen extends javax.swing.JFrame {
 
         jLabel1.setText("Seleccione el tipo de examen");
 
+        btnInicioExa.setText("Elegir examen");
+        btnInicioExa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnInicioExaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -51,6 +59,10 @@ public class InicioExamen extends javax.swing.JFrame {
                     .addComponent(CBexamenes, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE))
                 .addContainerGap(575, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnInicioExa, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(138, 138, 138))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -59,7 +71,9 @@ public class InicioExamen extends javax.swing.JFrame {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(CBexamenes, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(417, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 298, Short.MAX_VALUE)
+                .addComponent(btnInicioExa, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(68, 68, 68))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -85,6 +99,10 @@ public class InicioExamen extends javax.swing.JFrame {
     private void CBexamenesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CBexamenesActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_CBexamenesActionPerformed
+
+    private void btnInicioExaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInicioExaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnInicioExaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -123,6 +141,7 @@ public class InicioExamen extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JComboBox<String> CBexamenes;
+    public javax.swing.JButton btnInicioExa;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables

@@ -3,21 +3,21 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
 package taxonomia_bloom;
-import Vista.Evaluacion;
-import Controlador.Control;
+import Vista.InicioExamen;
+import Controlador.ControlI;
 
 
 
 public class Taxonomia_Bloom {
 
-    public static Vista.Evaluacion vista;
+    public static Vista.InicioExamen vista;
   
     
     public static void main(String[] args) {
 
-        vista = new Evaluacion();
+        vista = new InicioExamen();
         vista.setVisible(true);
-        Control control = new Control(vista);
+        ControlI controlI = new ControlI(vista);
         
         
         

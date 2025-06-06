@@ -35,7 +35,7 @@ public class InicioExamen extends javax.swing.JFrame {
         txtPreguntas = new javax.swing.JLabel();
         txtTiempo = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextPane1 = new javax.swing.JTextPane();
+        txtpBloom = new javax.swing.JTextPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -70,9 +70,10 @@ public class InicioExamen extends javax.swing.JFrame {
 
         txtTiempo.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
 
-        jTextPane1.setFont(new java.awt.Font("DialogInput", 3, 14)); // NOI18N
-        jTextPane1.setText("Este examen contiene las siguientes preguntas según las taxonomia de Bloom: ");
-        jScrollPane1.setViewportView(jTextPane1);
+        txtpBloom.setEditable(false);
+        txtpBloom.setFont(new java.awt.Font("DialogInput", 3, 14)); // NOI18N
+        txtpBloom.setText("Este examen contiene las siguientes preguntas según las taxonomia de Bloom: ");
+        jScrollPane1.setViewportView(txtpBloom);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -199,8 +200,8 @@ public class InicioExamen extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextPane jTextPane1;
     public javax.swing.JLabel txtPreguntas;
     public javax.swing.JLabel txtTiempo;
+    private javax.swing.JTextPane txtpBloom;
     // End of variables declaration//GEN-END:variables
 }

@@ -22,6 +22,7 @@ public class ControlI {
     private Control control;
     public Evaluacion vista2;
     public List<Pregunta> preguntas;
+    int tiempo;
     
     public ControlI(InicioExamen vista){
         this.vista = vista;
@@ -39,6 +40,7 @@ public class ControlI {
         
         vista.btnInicioExa.addActionListener(new ActionListener(){
             public void actionPerformed (ActionEvent e){
+                elegirExamen();
                 Evaluacion vista2 = new Evaluacion();
                 Control control = new Control(vista2, preguntas);
                 vista2.setVisible(true);
@@ -53,11 +55,21 @@ public class ControlI {
         public void elegirExamen(){
             Listar listar = new Listar();
             preguntas = listar.preguntaBD(vista.CBexamenes.getSelectedIndex()+1);
-            System.out.println(preguntas.size());
+            vista.txtPreguntas.setText(String.valueOf(preguntas.size()));
+            vista.txtTiempo.setText(tiempoTotal()+" Min");
             Pregunta p = preguntas.get(1);
             
             System.out.println(p.getPregunta());
             
+        }
+        
+        public int tiempoTotal(){
+            tiempo = 0;
+            for (int i =0;i<preguntas.size();i++){
+            Pregunta p = preguntas.get(i);
+            tiempo += p.getTiempo();
+        }
+            return tiempo;
         }
         
         

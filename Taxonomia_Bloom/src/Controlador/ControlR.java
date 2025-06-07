@@ -35,6 +35,9 @@ public final class ControlR {
     private double contador4=0;
     private double contador5=0;
     private double contador6=0;
+    private int vf=0;
+    private int mp=0;
+    
     
     
     
@@ -48,34 +51,28 @@ public final class ControlR {
         
         mostrarResultados();
     }
+
         
     private void mostrarResultados() {
         DecimalFormat fd = new DecimalFormat("#.00");
         for (int i = 0; i < respuestas.size(); i++) {
             Pregunta p = preguntas.get(i);
-            if (respuestas.get(i)==p.getRespuestaCorrecta()){
+            if (null != p.getTipo())switch(p.getTipo()){
+                case "Verdadero Falso"-> vf++;
+                case "Multiple"-> mp++;
+            }
+            
+            else if (respuestas.get(i)==p.getRespuestaCorrecta()){
                 contador++;
-                if ("Conocimiento".equals(p.getNivelTaxonomia())){
-                    contador1++;     
-                }
-                else if("Compresión".equals(p.getNivelTaxonomia())){
-                    contador2++;
-                }
-                
-                else if("Aplicación".equals(p.getNivelTaxonomia())){
-                    contador3++;
-                }
-                
-                else if("Análisis".equals(p.getNivelTaxonomia())){
-                    contador4++;
-                }
-                
-                else if("Síntesis".equals(p.getNivelTaxonomia())){
-                    contador5++;
-                }
-                
-                else if("Evaluación".equals(p.getNivelTaxonomia())){
-                    contador6++;
+                if (null != p.getNivelTaxonomia())switch (p.getNivelTaxonomia()) {
+                    case "Conocimiento" -> contador1++;
+                    case "Compresión" -> contador2++;
+                    case "Aplicación" -> contador3++;
+                    case "Análisis" -> contador4++;
+                    case "Síntesis" -> contador5++;
+                    case "Evaluación" -> contador6++;
+                    default -> {
+                    }
                 }
                 
             }  
@@ -88,22 +85,29 @@ public final class ControlR {
         pResCorrectas5 =((contador5/preguntas.size())*100);
         pResCorrectas6 =((contador6/preguntas.size())*100);
         vista.txtRespuestas.setText("""
-                                    Respuestas correctas 
-                                    Total = %s %% 
-                                    - Taxonomia conocimiento: %s %%
-                                    - Taxonomia conocimiento: %s %%
-                                    - Taxonomia conocimiento: %s %%
-                                    - Taxonomia conocimiento: %s %%
-                                    - Taxonomia conocimiento: %s %%
-                                    - Taxonomia conocimiento: %s %%
+                                    Respuestas correctas:
                                     
+                                    Total = %s %% 
+                                    -- Taxonomia Recordar: %s %%
+                                    -- Taxonomia Comprender: %s %%
+                                    -- Taxonomia Aplicar: %s %%
+                                    -- Taxonomia Analizar: %s %%
+                                    -- Taxonomia Crear: %s %%
+                                    -- Taxonomia Evaluar: %s %%
+                                    
+                                    Segun tipo de pregunta:
+                                    
+                                    -- Verdadero o falso: %s
+                                    -- Multiple: %s
                                    """.formatted(fd.format(pResCorrectas),
                                            fd.format(pResCorrectas1),
                                            fd.format(pResCorrectas2),
                                            fd.format(pResCorrectas3),
                                            fd.format(pResCorrectas4),
                                            fd.format(pResCorrectas5),
-                                           fd.format(pResCorrectas6)));
+                                           fd.format(pResCorrectas6),
+                                           vf,
+                                           mp));
     }
         
 

@@ -212,6 +212,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Este examen contiene las siguientes preguntas seg&#xfa;n las taxonomia de Bloom: "/>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+              </AuxValues>
             </Component>
           </SubComponents>
         </Container>

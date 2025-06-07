@@ -202,6 +202,6 @@ public class InicioExamen extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JLabel txtPreguntas;
     public javax.swing.JLabel txtTiempo;
-    private javax.swing.JTextPane txtpBloom;
+    public javax.swing.JTextPane txtpBloom;
     // End of variables declaration//GEN-END:variables
 }

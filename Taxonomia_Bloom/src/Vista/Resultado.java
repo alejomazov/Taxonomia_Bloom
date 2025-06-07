@@ -34,6 +34,7 @@ public class Resultado extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         txtRespuestas.setColumns(20);
+        txtRespuestas.setFont(new java.awt.Font("SimSun-ExtB", 1, 14)); // NOI18N
         txtRespuestas.setRows(5);
         jScrollPane1.setViewportView(txtRespuestas);
 

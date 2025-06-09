@@ -174,7 +174,9 @@ java -cp "ruta/al/mysql-connector-j.jar:src" taxonomia_bloom.Taxonomia_Bloom
 ## Uso
 Al iniciar la aplicación, se mostrará la ventana InicioExamen.
 
-Selecciona un examen del combobox. Verás un resumen de las preguntas y los niveles de la Taxonomía de Bloom.
+Selecciona un examen del combobox. 
+
+Verás un resumen de las preguntas y los niveles de la Taxonomía de Bloom.
 
 Haz clic en "Iniciar Prueba" para comenzar el examen.
 

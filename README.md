@@ -42,7 +42,7 @@ El sistema ofrece las siguientes características principales:
 
 El proyecto sigue una estructura de diseño MVC (Modelo-Vista-Controlador) para una mejor organización y separación de responsabilidades.
 
-
+```
   
 ├── src
 │   ├── Controlador
@@ -60,7 +60,7 @@ El proyecto sigue una estructura de diseño MVC (Modelo-Vista-Controlador) para 
 │   └── taxonomia_bloom
 │       └── Taxonomia_Bloom.java    // Clase principal que inicia la aplicación.
 └── pom.xml (o equivalente para gestión de dependencias si usas Maven/Gradle)
-
+```
 ### Descripción de Clases Clave:
 
 * **`Controlador/Conexion.java`**: Establece y gestiona la conexión con la base de datos MySQL. Contiene métodos para abrir y cerrar la conexión.

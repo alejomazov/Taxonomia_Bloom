@@ -99,7 +99,7 @@ public class ControlI {
             
             for(int i= 0; i<preguntas.size();i++){
                 Pregunta p = preguntas.get(i);
-                System.out.println(p.getNivelTaxonomia());
+                
                 if (null != p.getNivelTaxonomia())
                     switch (p.getNivelTaxonomia()) {
                     case "Conocimiento" -> taxCto++;

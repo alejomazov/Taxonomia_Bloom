@@ -102,7 +102,7 @@ public final class ControlR {
         vista.setVisible(false);
         vistaE.setVisible(true);
         inhabilitarRespuestas();
-        revisarRcorrecta(indiceActual);
+         
 
         vistaE.btnSig.addActionListener(e -> {
             vistaE.buttonGroup.clearSelection();
@@ -111,7 +111,7 @@ public final class ControlR {
                 setRespuesta(indiceActual);
                 mostrarPregunta(indiceActual);
                 inhabilitarRespuestas();
-                revisarRcorrecta(indiceActual);
+                
             }
         });
 
@@ -122,7 +122,7 @@ public final class ControlR {
                 mostrarPregunta(indiceActual);
                 inhabilitarRespuestas();
                 setRespuesta(indiceActual);
-                revisarRcorrecta(indiceActual);
+                
             }
         });
 
@@ -208,12 +208,4 @@ public final class ControlR {
         vistaE.rbtnD.setEnabled(false);
     }
 
-    public void revisarRcorrecta(int i) {
-        Pregunta p = preguntas.get(i);
-        if (respuestas.get(i) == p.getRespuestaCorrecta()) {
-            System.out.println("Respuesta correcta");
-        } else {
-            System.out.println("Respuesta incorrecta");
-        }
-    }
 }

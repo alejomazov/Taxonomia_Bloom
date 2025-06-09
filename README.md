@@ -187,5 +187,6 @@ Crea una nueva rama (git checkout -b feature/nueva-funcionalidad).
 Realiza tus cambios y haz "commit" (git commit -am 'feat: Añadir nueva funcionalidad X').
 Sube tus cambios a tu "fork" (git push origin feature/nueva-funcionalidad).
 Abre un "Pull Request".
+
 Licencia
 Este proyecto está bajo la Licencia MIT. Consulta el archivo LICENSE para más detalles.

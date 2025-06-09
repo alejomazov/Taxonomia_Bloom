@@ -30,20 +30,12 @@ public class Control {
     public Control(Evaluacion vista,List<Pregunta> preguntas) {
         this.vista = vista;
         this.preguntas = preguntas;
-        
-         
+
         indiceActual = 0;
         
-        for(int i=0; i<preguntas.size();i++){
-            
-            
-            listRespuesta.add(0);
-            
-            
+        for(int i=0; i<preguntas.size();i++){        
+            listRespuesta.add(0);          
         }
-        
-        
-
         inicioExamen();
         
         
@@ -69,7 +61,7 @@ public class Control {
                     indiceActual++;
                     setRespuesta(indiceActual);
                     mostrarPregunta(indiceActual);
-                    System.out.println(listRespuesta);
+                    
                     if(indiceActual==preguntas.size()-1){
                         vista.btnSig.setText("Enviar");
                     }
@@ -93,7 +85,6 @@ public class Control {
                 if (indiceActual >  0  ) {
                     indiceActual--;
                     mostrarPregunta(indiceActual);
-                    System.out.println(listRespuesta+"atras");
                     setRespuesta(indiceActual);
                     
                     if ("Enviar".equals(vista.btnSig.getText())){
@@ -132,9 +123,6 @@ public class Control {
         
         
     }
-        
-        
-        
         private void inicioExamen() {
         vista.Pregunta.setText("""
                                Preparados para el examen mas salvaje y estupido que van a  tener en sus malditas vidas.

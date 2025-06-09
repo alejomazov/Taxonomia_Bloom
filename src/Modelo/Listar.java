@@ -27,7 +27,7 @@ public class Listar {
                 + "respuestaCorrecta, tiempo, tipo, nivel "
                 + "FROM preguntas "
                 + "WHERE id_examen = ?";
-        System.out.println(examen);
+        
         
         
         try {

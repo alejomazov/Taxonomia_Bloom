@@ -15,6 +15,7 @@ public class InicioExamen extends javax.swing.JFrame {
      */
     public InicioExamen() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**

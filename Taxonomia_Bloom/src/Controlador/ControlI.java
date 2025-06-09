@@ -63,13 +63,6 @@ public class ControlI {
             vista.txtTiempo.setText(tiempoTotal()+" Min");
             tipoBloom();
             
-            
-            
-            
-            //Pregunta p = preguntas.get(1);
-            
-            //System.out.println(p.getPregunta());
-            
         }
         
         public int tiempoTotal(){
@@ -119,28 +112,24 @@ public class ControlI {
                     }
                 }
             }
-            
-            
+ 
             String textoBloom = "\nPreguntas de recordar: "+taxCto+"\n"
                     + "Preguntas de comprender: "+taxCsion+"\n"
                     + "Preguntas de aplicar: "+taxApli+"\n"
                     + "Preguntas de analizar: "+taxAnal+"\n"
                     + "Preguntas de crear: "+taxSint+"\n"
                     + "Preguntas de evaluar: "+taxEva+"\n";
-            
-            
+
             try{
             doc.insertString(doc.getLength(), textoBloom, null);
             }catch (BadLocationException e){
                 e.printStackTrace();
             }
-            
-            
-  
             return 0;
         }
         
-    }
+        
+}
 
     
 

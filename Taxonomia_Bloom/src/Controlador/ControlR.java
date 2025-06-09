@@ -9,6 +9,9 @@ import Vista.Evaluacion;
 import Controlador.Control;
 import Modelo.Listar;
 import Modelo.Pregunta;
+import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.text.DecimalFormat;
 import java.util.List;
 import java.util.ArrayList;
@@ -19,6 +22,8 @@ import java.util.ArrayList;
  */
 public final class ControlR {
     private Resultado vista;
+    public Evaluacion vistaE= new Evaluacion();
+    private Control controlE;
     private List<Integer> respuestas;
     private List<Pregunta> preguntas;
     private double pResCorrectas;
@@ -37,6 +42,9 @@ public final class ControlR {
     private double contador6=0;
     private int vf=0;
     private int mp=0;
+    private int indiceActual = 0;
+    
+    
     
     
     
@@ -44,12 +52,34 @@ public final class ControlR {
     
     public ControlR(Resultado vista, List<Integer> respuestas, List<Pregunta> preguntas) {
         this.vista = vista;
+        
         this.preguntas = preguntas;
         this.respuestas = respuestas;
         
         
         
+        
+        
+        
+        
         mostrarResultados();
+        
+        
+        // Inicio botones resultado
+        //Boton revisar examen
+        vista.btnRexamen.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                revisarRespuestas();
+                
+            }
+        });
+        //Final botones resultado
+
+
+        
+        
+        
+        
     }
 
         
@@ -57,13 +87,13 @@ public final class ControlR {
         DecimalFormat fd = new DecimalFormat("#.00");
         for (int i = 0; i < respuestas.size(); i++) {
             Pregunta p = preguntas.get(i);
-            if (null != p.getTipo())switch(p.getTipo()){
-                case "Verdadero Falso"-> vf++;
-                case "Multiple"-> mp++;
-            }
             
-            else if (respuestas.get(i)==p.getRespuestaCorrecta()){
+            /*
+            
+            */
+            if (respuestas.get(i)==p.getRespuestaCorrecta()){
                 contador++;
+                System.out.println("Prueba");
                 if (null != p.getNivelTaxonomia())switch (p.getNivelTaxonomia()) {
                     case "Conocimiento" -> contador1++;
                     case "Compresión" -> contador2++;
@@ -75,7 +105,12 @@ public final class ControlR {
                     }
                 }
                 
-            }  
+            }
+            if (null != p.getTipo())switch(p.getTipo()){
+                case "Verdadero Falso"-> vf++;
+                case "Multiple"-> mp++;
+                
+            }
         }
         pResCorrectas =((contador/preguntas.size())*100);
         pResCorrectas1 =((contador1/preguntas.size())*100);
@@ -109,8 +144,159 @@ public final class ControlR {
                                            vf,
                                            mp));
     }
+    
+    public void revisarRespuestas(){
+        mostrarPregunta(indiceActual);
+        setRespuesta(indiceActual);
         
-
+        vista.setVisible(false);
+        vistaE.setVisible(true);
+        vistaE.btnAnt.setEnabled(false);
+        inhabilitarRespuestas();
+        revisarRcorrecta(indiceActual);
+        
+        //Control control = new Control(vistaE,preguntas);
+        
+        
+        
+        
+                //Inicio botones evaluacion
+         
+        vistaE.btnSig.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                
+                
+                
+                vistaE.buttonGroup.clearSelection();
+                if (indiceActual < preguntas.size() -1) {
+                    indiceActual++;
+                    setRespuesta(indiceActual);
+                    mostrarPregunta(indiceActual);
+                    inhabilitarRespuestas();
+                    revisarRcorrecta(indiceActual);
+                    if(indiceActual==preguntas.size()-1){
+                        vistaE.btnSig.setEnabled(false);
+                        
+                    }
+                }
+            }
+         });
+        
+                // boton atras
+        vistaE.btnAnt.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                
+                vistaE.buttonGroup.clearSelection();
+                if (indiceActual >  0  ) {
+                    indiceActual--;
+                    mostrarPregunta(indiceActual);
+                    inhabilitarRespuestas();
+                    setRespuesta(indiceActual);
+                    revisarRcorrecta(indiceActual);
+                    if (0 == indiceActual){
+                        vistaE.btnAnt.setEnabled(false);
+                    }
+                } else {
+                    
+                    
+                }
+                
+            }
+        });
+        
+        
+        //Final botones evaluacion
+        
+        
+        
+    }  
+ public void setRespuesta(int i){
+     
+            Pregunta p = preguntas.get(i);
+            if (respuestas.get(i)!=0)
+                switch (respuestas.get(i)) {
+            case 1 -> {
+                vistaE.rbtnA.setSelected(true);
+                if(respuestas.get(i)==p.getRespuestaCorrecta()){
+                vistaE.TextA.setSelectionColor(Color.green);
+                }else {
+                    vistaE.TextA.setSelectionColor(Color.red);
+                }
+                System.out.println("Respuesta correcta");
+            }
+            case 2 -> {
+                vistaE.rbtnB.setSelected(true);
+                if(respuestas.get(i)==p.getRespuestaCorrecta()){
+                vistaE.TextB.setSelectionColor(Color.green);
+                }else {
+                    vistaE.TextB.setSelectionColor(Color.red);
+            }
+            }
+            case 3 -> {
+                vistaE.rbtnC.setSelected(true);
+                if(respuestas.get(i)==p.getRespuestaCorrecta()){
+                vistaE.TextC.setSelectionColor(Color.green);
+                }else {
+                    vistaE.TextC.setSelectionColor(Color.red);
+            }
+            }
+            case 4 -> {
+                vistaE.rbtnD.setSelected(true);
+                if(respuestas.get(i)==p.getRespuestaCorrecta()){
+                vistaE.TextD.setSelectionColor(Color.green);
+                }else {
+                    vistaE.TextD.setSelectionColor(Color.red);
+            }
+            }
+            default -> {
+                }
+        }
+            
+        }
+ 
+        public void mostrarPregunta(int i) {
+        Pregunta p = preguntas.get(i);
+        vistaE.Pregunta.setText(p.getPregunta());
+        vistaE.TextA.setText(p.getRespuesta_1());
+        vistaE.TextB.setText(p.getRespuesta_2());
+        vistaE.TextC.setText(p.getRespuesta_3());
+        vistaE.TextD.setText(p.getRespuesta_4());
+        vistaE.btnAnt.setEnabled(true);
+        vistaE.btnSig.setEnabled(true);
+        vistaE.btnIniciarP.setEnabled(false);
+        vistaE.nPreguntas.setText(""+(i+1));
+        vistaE.rbtnA.setEnabled(true);
+        vistaE.rbtnB.setEnabled(true);
+        vistaE.rbtnC.setEnabled(true);
+        vistaE.rbtnD.setEnabled(true);
+        if ("Verdadero Falso".equals(p.getTipo())){
+            vistaE.rbtnC.setEnabled(false);
+            vistaE.rbtnD.setEnabled(false);
+        }else{
+            vistaE.rbtnC.setEnabled(true);
+            vistaE.rbtnD.setEnabled(true);
+        }
+        
+        
+    }
+        
+        public void inhabilitarRespuestas(){
+            vistaE.rbtnA.setEnabled(false);
+            vistaE.rbtnB.setEnabled(false);
+            vistaE.rbtnC.setEnabled(false);
+            vistaE.rbtnD.setEnabled(false);
+        }
+        public void revisarRcorrecta(int i){
+           Pregunta p = preguntas.get(i);
+           if(respuestas.get(i)==p.getRespuestaCorrecta())
+                System.out.println("Respuestacorrecta");
+           else{
+               System.out.println("Respuesta incorrecta");
+           }
+                
+            
+        
+        }
 }
 
 

@@ -30,7 +30,7 @@ public class Control {
     public Control(Evaluacion vista,List<Pregunta> preguntas) {
         this.vista = vista;
         this.preguntas = preguntas;
-        Listar listar = new Listar();
+        
          
         indiceActual = 0;
         
@@ -96,7 +96,7 @@ public class Control {
                     System.out.println(listRespuesta+"atras");
                     setRespuesta(indiceActual);
                     
-                    if (vista.btnSig.getText()=="Enviar"){
+                    if ("Enviar".equals(vista.btnSig.getText())){
                         vista.btnSig.setText("Siguiente");
                     }
                 } else {
@@ -107,7 +107,7 @@ public class Control {
         });
         
     }    
-        private void mostrarPregunta(int i) {
+        public void mostrarPregunta(int i) {
         Pregunta p = preguntas.get(i);
         vista.Pregunta.setText(p.getPregunta());
         vista.TextA.setText(p.getRespuesta_1());
@@ -170,32 +170,15 @@ public class Control {
         public void setRespuesta(int i){
             if (listRespuesta.get(i)!=0)
                 switch (listRespuesta.get(i)) {
-            case 1:
-                vista.rbtnA.setSelected(true);
-                
-                break;
-            case 2:
-                vista.rbtnB.setSelected(true);
-                
-                break;
-            case 3:
-                vista.rbtnC.setSelected(true);
-               
-                break;
-            case 4:
-                vista.rbtnD.setSelected(true);
-                
-                break;
-            default:
-                break;
+            case 1 -> vista.rbtnA.setSelected(true);
+            case 2 -> vista.rbtnB.setSelected(true);
+            case 3 -> vista.rbtnC.setSelected(true);
+            case 4 -> vista.rbtnD.setSelected(true);
+            default -> {
+                }
         }
             
         }
-        
-        public List<Integer> getListRespuesta(){
-            return listRespuesta;
-        }
-           
 }
 
 

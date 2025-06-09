@@ -16,7 +16,6 @@ Este proyecto es un sistema de evaluación interactivo desarrollado en Java, dis
 - [Uso](#uso)
 - [Contribuciones](#contribuciones)
 - [Licencia](#licencia)
-- [Contacto](#contacto)
 
 
 ## Funcionalidades

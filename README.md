@@ -91,7 +91,8 @@ Asegúrate de tener instalado lo siguiente:
 1.  **Crear la Base de Datos:**
     Crea una base de datos MySQL llamada `mydb`. Puedes hacerlo a través de MySQL Workbench, phpMyAdmin, o la línea de comandos de MySQL:
 
-    ```sql
+    ```
+    sql
     CREATE DATABASE mydb;
     USE mydb;
     ```
@@ -99,7 +100,8 @@ Asegúrate de tener instalado lo siguiente:
 2.  **Crear la Tabla de Preguntas:**
     Crea una tabla `preguntas` con la siguiente estructura. Asegúrate de incluir campos para todas las propiedades de la clase `Pregunta` (id, enunciado, respuesta_1, respuesta_2, respuesta_3, respuesta_4, respuestaCorrecta, tiempo, tipo, nivel).
 
-    ```sql
+    ```
+    sql
     CREATE TABLE preguntas (
         id_pregunta INT PRIMARY KEY AUTO_INCREMENT,
         id_examen INT NOT NULL,
@@ -118,7 +120,8 @@ Asegúrate de tener instalado lo siguiente:
 3.  **Insertar Datos de Prueba (Opcional):**
     Puedes insertar algunas preguntas de ejemplo para probar el sistema:
 
-    ```sql
+    ```
+    sql
     INSERT INTO preguntas (id_examen, enunciado, respuesta_1, respuesta_2, respuesta_3, respuesta_4, respuestaCorrecta, tiempo, tipo, nivel) VALUES
     (1, '¿Cuál es la capital de Francia?', 'Berlín', 'Madrid', 'París', 'Roma', 3, 1, 'Opción Múltiple', 'Conocimiento'),
     (1, 'El agua hierve a 100°C a nivel del mar.', 'Verdadero', 'Falso', NULL, NULL, 1, 0, 'Verdadero Falso', 'Comprensión'),
@@ -128,7 +131,8 @@ Asegúrate de tener instalado lo siguiente:
 4.  **Configurar Credenciales de la Base de Datos:**
     En el archivo `Controlador/Conexion.java`, asegúrate de que `user` y `password` coincidan con las credenciales de tu usuario de MySQL. Por defecto, están configurados como `root` y `1234`.
 
-    ```java
+    ```
+    java
     // Controlador/Conexion.java
     String user="root"; // Cambia si tu usuario de MySQL es diferente
     String password="1234"; // Cambia si tu contraseña de MySQL es diferente
@@ -139,10 +143,11 @@ Asegúrate de tener instalado lo siguiente:
 
 Abre tu terminal o Git Bash y ejecuta el siguiente comando:
 
-```bash
+```
+bash
 git clone [https://github.com/tu-usuario/nombre-del-repositorio.git](https://github.com/tu-usuario/nombre-del-repositorio.git)
 cd nombre-del-repositorio
-
+```
 Compilación y Ejecución
 Desde un IDE (NetBeans, IntelliJ IDEA, Eclipse):
 
@@ -156,14 +161,17 @@ Navega a la raíz del proyecto en tu terminal.
 Compila los archivos Java:
 
 Bash
-
+```
 javac -cp "ruta/al/mysql-connector-j.jar:src" src/taxonomia_bloom/Taxonomia_Bloom.java src/Controlador/*.java src/Modelo/*.java src/Vista/*.java
+```
 Nota: Reemplaza "ruta/al/mysql-connector-j.jar" con la ruta real al archivo JAR del conector MySQL. En Windows, usa ; en lugar de : para separar el classpath.
 Ejecuta la aplicación:
 
 Bash
-
+```
 java -cp "ruta/al/mysql-connector-j.jar:src" taxonomia_bloom.Taxonomia_Bloom
+```
+
 Uso
 Al iniciar la aplicación, se mostrará la ventana InicioExamen.
 Selecciona un examen del combobox. Verás un resumen de las preguntas y los niveles de la Taxonomía de Bloom.

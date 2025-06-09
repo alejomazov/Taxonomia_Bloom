@@ -125,7 +125,17 @@ public class Control {
     }
         private void inicioExamen() {
         vista.Pregunta.setText("""
-                               Preparados para el examen mas salvaje y estupido que van a  tener en sus malditas vidas.
+                               -- Modalidad: Online – Individual
+                               
+                               Tipo de preguntas: Selección múltiple con única respuesta correcta y perguntas de verdadero o falso
+                               
+                               Solo se permite una tentativa. Una vez iniciado el examen, no se podrá pausar ni reiniciar.
+                               
+                               -- Antes de entregar
+                               
+                               Verifique que haya respondido todas las preguntas.
+                               
+                               Entregue el examen solo cuando haya finalizado completamente y esté conforme con sus respuestas.
                                
                                Presiona Iniciar Prueba""");
         

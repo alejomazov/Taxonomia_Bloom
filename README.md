@@ -148,7 +148,7 @@ bash
 git clone [https://github.com/tu-usuario/nombre-del-repositorio.git](https://github.com/tu-usuario/nombre-del-repositorio.git)
 cd nombre-del-repositorio
 ```
-Compilación y Ejecución
+### Compilación y Ejecución
 Desde un IDE (NetBeans, IntelliJ IDEA, Eclipse):
 
 Abre el proyecto en tu IDE preferido.
@@ -172,14 +172,14 @@ Bash
 java -cp "ruta/al/mysql-connector-j.jar:src" taxonomia_bloom.Taxonomia_Bloom
 ```
 
-Uso
+## Uso
 Al iniciar la aplicación, se mostrará la ventana InicioExamen.
 Selecciona un examen del combobox. Verás un resumen de las preguntas y los niveles de la Taxonomía de Bloom.
 Haz clic en "Iniciar Prueba" para comenzar el examen.
 Responde las preguntas seleccionando la opción deseada y navega usando los botones "Anterior" y "Siguiente".
 Una vez finalizado el examen (o cuando se acabe el tiempo), se mostrará la ventana Resultado.
 En la ventana de resultados, puedes hacer clic en "Revisar Examen" para ver las preguntas con tus respuestas y las respuestas correctas marcadas en verde.
-Contribuciones
+## Contribuciones
 Las contribuciones son bienvenidas. Si deseas mejorar este proyecto, sigue estos pasos:
 
 Haz un "fork" de este repositorio.
@@ -188,5 +188,5 @@ Realiza tus cambios y haz "commit" (git commit -am 'feat: Añadir nueva funciona
 Sube tus cambios a tu "fork" (git push origin feature/nueva-funcionalidad).
 Abre un "Pull Request".
 
-Licencia
+## Licencia
 Este proyecto está bajo la Licencia MIT. Consulta el archivo LICENSE para más detalles.

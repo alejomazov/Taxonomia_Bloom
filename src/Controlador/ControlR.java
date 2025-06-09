@@ -15,6 +15,7 @@ import java.awt.event.ActionListener;
 import java.text.DecimalFormat;
 import java.util.List;
 import java.util.ArrayList;
+import javax.swing.UIManager;
 
 /**
  *
@@ -210,53 +211,55 @@ public final class ControlR {
         
         
     }  
- public void setRespuesta(int i){
-     
-            Pregunta p = preguntas.get(i);
-            if (respuestas.get(i)!=0)
-                switch (respuestas.get(i)) {
-            case 1 -> {
-                vistaE.rbtnA.setSelected(true);
-                if(respuestas.get(i)==p.getRespuestaCorrecta()){
-                vistaE.TextA.setBackground(Color.green);
-                }else {
-                    
-                    
-                    vistaE.TextA.setBackground(Color.red);
-                    
-                    
-                }
-                System.out.println("Respuesta correcta");
-            }
-            case 2 -> {
-                vistaE.rbtnB.setSelected(true);
-                if(respuestas.get(i)==p.getRespuestaCorrecta()){
-                vistaE.TextB.setBackground(Color.green);
-                }else {
-                    vistaE.TextB.setBackground(Color.red);
-            }
-            }
-            case 3 -> {
-                vistaE.rbtnC.setSelected(true);
-                if(respuestas.get(i)==p.getRespuestaCorrecta()){
-                vistaE.TextC.setBackground(Color.green);
-                }else {
-                    vistaE.TextC.setBackground(Color.red);
-            }
-            }
-            case 4 -> {
-                vistaE.rbtnD.setSelected(true);
-                if(respuestas.get(i)==p.getRespuestaCorrecta()){
-                vistaE.TextD.setBackground(Color.green);
-                }else {
-                    vistaE.TextD.setBackground(Color.red);
-            }
-            }
-            default -> {
-                }
+
+ public void setRespuesta(int i) {
+    Pregunta p = preguntas.get(i);
+    int respuestaUsuario = respuestas.get(i);
+    int respuestaCorrecta = p.getRespuestaCorrecta();
+
+    // Restaurar colores
+    Color colorOriginal = UIManager.getColor("TextField.background");
+    vistaE.TextA.setBackground(colorOriginal);
+    vistaE.TextB.setBackground(colorOriginal);
+    vistaE.TextC.setBackground(colorOriginal);
+    vistaE.TextD.setBackground(colorOriginal);
+
+    // Marcar la opción seleccionada por el usuario
+    switch (respuestaUsuario) {
+        case 1 -> vistaE.rbtnA.setSelected(true);
+        case 2 -> vistaE.rbtnB.setSelected(true);
+        case 3 -> vistaE.rbtnC.setSelected(true);
+        case 4 -> vistaE.rbtnD.setSelected(true);
+    }
+
+    // Evaluar respuesta
+    if (respuestaUsuario == respuestaCorrecta) {
+        // Correcta -> poner en verde la opción seleccionada
+        switch (respuestaUsuario) {
+            case 1 -> vistaE.TextA.setBackground(Color.green);
+            case 2 -> vistaE.TextB.setBackground(Color.green);
+            case 3 -> vistaE.TextC.setBackground(Color.green);
+            case 4 -> vistaE.TextD.setBackground(Color.green);
         }
-            
+    } else {
+        // Incorrecta -> marcar en rojo la opción seleccionada
+        switch (respuestaUsuario) {
+            case 1 -> vistaE.TextA.setBackground(Color.red);
+            case 2 -> vistaE.TextB.setBackground(Color.red);
+            case 3 -> vistaE.TextC.setBackground(Color.red);
+            case 4 -> vistaE.TextD.setBackground(Color.red);
         }
+
+        // Y marcar en verde la respuesta correcta
+        switch (respuestaCorrecta) {
+            case 1 -> vistaE.TextA.setBackground(Color.green);
+            case 2 -> vistaE.TextB.setBackground(Color.green);
+            case 3 -> vistaE.TextC.setBackground(Color.green);
+            case 4 -> vistaE.TextD.setBackground(Color.green);
+        }
+    }
+}
+
  
         public void mostrarPregunta(int i) {
         Pregunta p = preguntas.get(i);

@@ -218,34 +218,38 @@ public final class ControlR {
             case 1 -> {
                 vistaE.rbtnA.setSelected(true);
                 if(respuestas.get(i)==p.getRespuestaCorrecta()){
-                vistaE.TextA.setSelectionColor(Color.green);
+                vistaE.TextA.setBackground(Color.green);
                 }else {
-                    vistaE.TextA.setSelectionColor(Color.red);
+                    
+                    
+                    vistaE.TextA.setBackground(Color.red);
+                    
+                    
                 }
                 System.out.println("Respuesta correcta");
             }
             case 2 -> {
                 vistaE.rbtnB.setSelected(true);
                 if(respuestas.get(i)==p.getRespuestaCorrecta()){
-                vistaE.TextB.setSelectionColor(Color.green);
+                vistaE.TextB.setBackground(Color.green);
                 }else {
-                    vistaE.TextB.setSelectionColor(Color.red);
+                    vistaE.TextB.setBackground(Color.red);
             }
             }
             case 3 -> {
                 vistaE.rbtnC.setSelected(true);
                 if(respuestas.get(i)==p.getRespuestaCorrecta()){
-                vistaE.TextC.setSelectionColor(Color.green);
+                vistaE.TextC.setBackground(Color.green);
                 }else {
-                    vistaE.TextC.setSelectionColor(Color.red);
+                    vistaE.TextC.setBackground(Color.red);
             }
             }
             case 4 -> {
                 vistaE.rbtnD.setSelected(true);
                 if(respuestas.get(i)==p.getRespuestaCorrecta()){
-                vistaE.TextD.setSelectionColor(Color.green);
+                vistaE.TextD.setBackground(Color.green);
                 }else {
-                    vistaE.TextD.setSelectionColor(Color.red);
+                    vistaE.TextD.setBackground(Color.red);
             }
             }
             default -> {

@@ -24,12 +24,14 @@ public class Control {
     int tiempo = 0;
     public ArrayList<Integer> listRespuesta = new ArrayList<>();
     
+    
         
     
     
     public Control(Evaluacion vista,List<Pregunta> preguntas) {
         this.vista = vista;
         this.preguntas = preguntas;
+        
 
         indiceActual = 0;
         
@@ -43,6 +45,7 @@ public class Control {
         vista.btnIniciarP.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e) {
             mostrarPregunta(indiceActual);
+            
 
             }
   
@@ -86,13 +89,13 @@ public class Control {
                     indiceActual--;
                     mostrarPregunta(indiceActual);
                     setRespuesta(indiceActual);
+                    System.out.println(indiceActual);
+                    
                     
                     if ("Enviar".equals(vista.btnSig.getText())){
                         vista.btnSig.setText("Siguiente");
-                    }
-                } else {
-                    vista.btnAnt.setEnabled(false);
-                }
+                    }}
+                
                 
             }
         });
@@ -105,7 +108,9 @@ public class Control {
         vista.TextB.setText(p.getRespuesta_2());
         vista.TextC.setText(p.getRespuesta_3());
         vista.TextD.setText(p.getRespuesta_4());
-        vista.btnAnt.setEnabled(true);
+        if (indiceActual == 0){
+        vista.btnAnt.setEnabled(false);}
+        else{vista.btnAnt.setEnabled(true);}
         vista.btnSig.setEnabled(true);
         vista.btnIniciarP.setEnabled(false);
         vista.nPreguntas.setText(""+(i+1));

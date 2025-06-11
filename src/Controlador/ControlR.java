@@ -65,8 +65,10 @@ public final class ControlR {
         double total = ((double) totalCorrectas / preguntas.size()) * 100;
 
         vista.txtRespuestas.setText(String.format("""
-            Respuestas correctas:
-
+            Total de preguntas: %s                                      
+            Respuestas correctas: %s                                     
+                                                
+                                                  
             Total = %s %% 
             -- Taxonomia Recordar: %s %%
             -- Taxonomia Comprender: %s %%
@@ -79,7 +81,9 @@ public final class ControlR {
 
             -- Verdadero o falso: %s
             -- Multiple: %s
-        """,
+        """,    
+                fd.format(preguntas.size()),
+                fd.format(totalCorrectas),
                 fd.format(total),
                 fd.format((double) taxonomias[0] / preguntas.size() * 100),
                 fd.format((double) taxonomias[1] / preguntas.size() * 100),

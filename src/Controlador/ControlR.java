@@ -34,6 +34,13 @@ public final class ControlR {
             vistaE.btnIniciarP.setText("Volver");
             indiceActual = 0;
         });
+        
+        vista.btnSalir.addActionListener(e -> {
+            System.exit(0);
+            
+        });
+        
+        
     }
 
     private void mostrarResultados() {
